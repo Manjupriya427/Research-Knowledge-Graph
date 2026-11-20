@@ -2,9 +2,18 @@ const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const path = require("path");
-
+const cors = require("cors");
 dotenv.config({ path: path.join(__dirname, ".env") });
 const app = express();
+app.use(cors({
+  origin: [
+    "https://manjupriya427.github.io",
+    "https://research-knowledge-graph.onrender.com",
+    "http://localhost:5000"
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type"]
+}));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "../frontend")));
 

@@ -1,6 +1,4 @@
 
-const API_BASE_URL = "http://localhost:5000";
-
 const API = {
     researchers: "/api/researchers",
     topics: "/api/topics",
@@ -86,8 +84,17 @@ function titleCase(s) {
 }
 
 // API CONNECTION
+
+const API_BASE_URL = window.location.hostname.endsWith("github.io")
+    ? "https://research-knowledge-graph.onrender.com"
+    : "";
+
 async function api(url, options = {}) {
-    const response = await fetch(url, options);
+    const fullUrl = url.startsWith("http")
+        ? url
+        : `${API_BASE_URL}${url}`;
+
+    const response = await fetch(fullUrl, options);
 
     if (!response.ok) {
         throw new Error(`API Error: ${response.status}`);
@@ -95,6 +102,7 @@ async function api(url, options = {}) {
 
     return response.json();
 }
+
 // BUILD MODULES
 function buildModules() {
  const host = byId("module-sections");
