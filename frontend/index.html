@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research Knowledge Graph</title><link rel="stylesheet" href="style.css">
+<script src="https://unpkg.com/cytoscape@3.30.4/dist/cytoscape.min.js"></script>
+</head>
+<body>
+<aside class="sidebar"><div class="brand"><span class="brand-icon">RK</span><div><b>Research KG</b><small>Intelligent Discovery</small></div></div>
+<nav>
+<a class="nav active" href="#dashboard">▦ Dashboard</a>
+<a class="nav" href="#researchers">♙ Researchers</a><a class="nav" href="#topics">◎ Research Topics</a>
+<a class="nav" href="#publications">▤ Publications</a><a class="nav" href="#datasets">▧ Datasets</a>
+<a class="nav" href="#funding">◇ Funding Projects</a><a class="nav" href="#graph">✣ Knowledge Graph</a>
+<a class="nav" href="#insights">✧ Intelligent Insights</a>
+</nav><div class="side-foot">Connecting people, ideas<br>and research discoveries.</div></aside>
+<main class="main">
+<header class="header"><div><p class="eyebrow">RESEARCH ORGANIZATION</p><h1>Research Knowledge Graph</h1><p class="muted">Discover hidden relationships across research activities.</p></div><span class="online">● System online</span></header>
+<section id="dashboard" class="section"><p class="eyebrow">OVERVIEW</p><h2>Dashboard</h2><div class="stats">
+<div class="stat"><span>♙</span><div><small>Researchers</small><b id="count-researchers">0</b></div></div>
+<div class="stat"><span>◎</span><div><small>Research Topics</small><b id="count-topics">0</b></div></div>
+<div class="stat"><span>▤</span><div><small>Publications</small><b id="count-publications">0</b></div></div>
+<div class="stat"><span>▧</span><div><small>Datasets</small><b id="count-datasets">0</b></div></div>
+<div class="stat"><span>◇</span><div><small>Funding Projects</small><b id="count-funding">0</b></div></div>
+</div><div class="panel welcome"><div><p class="eyebrow">DISCOVERY WORKSPACE</p><h3>Build connections across your research ecosystem</h3><p class="muted">Add researchers and research resources, connect them to topics, and explore the resulting knowledge graph.</p></div><div class="welcome-symbol">✣</div></div></section>
+<div id="module-sections"></div>
+<section id="graph" class="section"><p class="eyebrow">RELATIONSHIP EXPLORER</p><h2>Knowledge Graph</h2><p class="muted">Explore relationships between researchers, topics, publications, datasets and funding.</p><div class="panel"><div class="graph-legend"><span class="legend researcher">Researchers</span><span class="legend topic">Topics</span><span class="legend publication">Publications</span><span class="legend dataset">Datasets</span><span class="legend funding">Funding</span><button id="refreshGraph" class="small-btn">Refresh graph</button></div><div id="cy"></div><p id="graphMessage" class="muted small"></p></div></section>
+<section id="insights" class="section"><p class="eyebrow">SEMANTIC REASONING</p><h2>Intelligent Insights</h2><p class="muted">Explainable rule-based discoveries from your connected research records.</p><div id="insightList" class="insight-grid"></div></section>
+<footer>Research Knowledge Graph · Full Stack Web Development Project</footer>
+</main><script src="script.js"></script></body></html>
