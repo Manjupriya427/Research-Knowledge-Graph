@@ -2,11 +2,11 @@
 const API_BASE_URL = "http://localhost:5000";
 
 const API = {
-  researchers: `${API_BASE_URL}/api/researchers`,
-  topics: `${API_BASE_URL}/api/topics`,
-  publications: `${API_BASE_URL}/api/publications`,
-  datasets: `${API_BASE_URL}/api/datasets`,
-  funding: `${API_BASE_URL}/api/funding`
+    researchers: "/api/researchers",
+    topics: "/api/topics",
+    publications: "/api/publications",
+    datasets: "/api/datasets",
+    funding: "/api/funding"
 };
 
 const modules = [
@@ -87,26 +87,14 @@ function titleCase(s) {
 
 // API CONNECTION
 async function api(url, options = {}) {
- const fullUrl = url.startsWith("http")
-  ? url
-  : `${API_BASE_URL}${url}`;
+    const response = await fetch(url, options);
 
- const response = await fetch(fullUrl, options);
+    if (!response.ok) {
+        throw new Error(`API Error: ${response.status}`);
+    }
 
- let data;
- try {
-  data = await response.json();
- } catch {
-  throw new Error("Invalid response from backend server.");
- }
-
- if (!response.ok) {
-  throw new Error(data.message || "Request failed");
- }
-
- return data;
+    return response.json();
 }
-
 // BUILD MODULES
 function buildModules() {
  const host = byId("module-sections");
